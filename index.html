@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LCCS ATM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="atm">
+
+  <!-- WELCOME SCREEN -->
+  <div id="startScreen" class="screen active">
+    <div class="logo-container">
+      <img src="https://i.pinimg.com/1200x/59/26/14/5926146e6c0166a68822b6214577f4b7.jpg" class="logo">
+    </div>
+    <h1 class="moving-title">Welcome to LCCS Bank</h1>
+    <p class="insert-text">Please insert your ATM card</p>
+    <button id="startBtn" class="btn">INSERT CARD</button>
+  </div>
+
+  <!-- LANGUAGE SELECTION -->
+  <div id="languageScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2>Select Language</h2>
+    <div class="grid">
+      <button class="card" onclick="setLanguage('en')">English</button>
+      <button class="card" onclick="setLanguage('am')">አማርኛ</button>
+      <button class="card" onclick="setLanguage('or')">Afaan Oromo</button>
+      <button class="card" onclick="setLanguage('ti')">ትግርኛ</button>
+    </div>
+  </div>
+
+  <!-- PIN SCREEN -->
+  <div id="pinScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2 id="pinTitle">Enter Your PIN</h2>
+    <input type="password" id="pinInput" placeholder="****" readonly>
+    <div class="keypad" id="pinKeypad"></div>
+    <p id="pinMsg"></p>
+  </div>
+
+  <!-- MENU SCREEN -->
+  <div id="menuScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2 id="menuTitle"></h2>
+    <div class="grid">
+      <button class="card" onclick="show('depositScreen')" id="depositBtn">Deposit</button>
+      <button class="card" onclick="show('withdrawScreen')" id="withdrawBtn">Withdraw</button>
+      <button class="card" onclick="show('borrowScreen')" id="borrowBtn">Borrow</button>
+      <button class="card" onclick="checkBalance()" id="balanceBtn">Balance</button>
+      <button class="card" onclick="showHistory()" id="historyBtn">History</button>
+      <button class="card" onclick="exitATM()" id="exitBtn">Exit</button>
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <!-- DEPOSIT SCREEN -->
+  <div id="depositScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2>Deposit Money</h2>
+    <input type="text" id="depositInput" placeholder="0" readonly>
+    <div class="keypad" id="depositKeypad"></div>
+  </div>
+
+  <!-- WITHDRAW SCREEN -->
+  <div id="withdrawScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2>Withdraw Money</h2>
+    <input type="text" id="withdrawInput" placeholder="0" readonly>
+    <div class="keypad" id="withdrawKeypad"></div>
+  </div>
+
+  <!-- BORROW SCREEN -->
+  <div id="borrowScreen" class="screen">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <h2>Borrow Money</h2>
+    <input type="text" id="borrowInput" placeholder="0" readonly>
+    <div class="keypad" id="borrowKeypad"></div>
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
